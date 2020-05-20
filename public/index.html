@@ -4,41 +4,38 @@
     <meta charset="utf-8">
     <title></title>
     <script type="text/javascript" src="./bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/map.css">
     <!-- to load d3 -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-   
-    <!-- to load topojson -->
-    <script src="javascripts/map/topojson.min.js"></script> 
 
-    <!-- custom map -->
-    <!-- <script src="/public/javascripts/map/mapfile.json"></script>     -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <nav>
-      <h2>Social statistics across the world</h2>
-    </nav>
-    
-    <div>
-      <svg id="map-container" width="960" height="580"></svg>
-      <script src="javascripts/map/map.js"></script>
+    <div class="main"> 
+      <nav class="nav">
+        <h2 class="nav-title">Women's social statistics across Latin America</h2>
+      </nav>
+
+      <div class='world-map-container'>
+        <svg id="world-map"></svg>
+        <script src="javascripts/map/map.js"></script>
+      </div>
+
+      <footer class='footer'>
+        <div class='footerDiv'>
+          <a href="https://github.com/jamesjiang13/worldstats">
+            <img class='imgResponsive' src='/images/github.png' alt="git"></img>
+          </a>
+          <a href="https://www.linkedin.com/in/jamesjiang13/">
+            <img class='imgResponsive' src='/images/linkedin.png' alt="lnkd"></img>
+          </a>
+        </div>
+      </footer>
     </div>
-  
-    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
-    <!-- <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script> -->
-    <!-- <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script> -->
-    <script src="javascripts/map/d3.min.js"></script>
-    <script src="javascripts/map/d3.geoprojection.js"></script>
-    <script src="javascripts/map/topojson.min.js"></script>
-    <!-- <script src="javascripts/map/map.js"></script> -->
-
-    <footer>
-      <a href="https://www.linkedin.com/jamesjiang13"> Linked In</a>
-      <a href="https://github.com/jamesjiang13"> Github </a>
-    </footer>
-
   </body>
 </html>
