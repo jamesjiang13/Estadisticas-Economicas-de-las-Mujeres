@@ -1,10 +1,14 @@
-.map-container body {
+.world-map-container {
+  height: 100vh;
+  width: 600px;
+}
+.world-map-container body {
   margin: 0px;
   overflow: hidden;
   background-color: #2A2C39;
 }
 
-.map-container path {
+.world-map-container path {
   fill: darkgrey;
   stroke-opacity: 50%;
   stroke: black;
@@ -12,7 +16,7 @@
 
 #world-map {
   width: 100%;
-  position: relative;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

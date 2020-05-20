@@ -1,6 +1,6 @@
 const svg = d3.select('svg');
 
-const projection = d3.geoMercator().scale(150);
+const projection = d3.geoMercator().scale(330).center([-40, -5]);
 const pathGenerator = d3.geoPath().projection(projection);
 
 d3.json('/javascripts/map/latinamerica.json')
@@ -10,7 +10,13 @@ d3.json('/javascripts/map/latinamerica.json')
       .data(topo.features)
       .enter()
       .append('path')
-      .attr('d', pathGenerator);
+      .attr('d', pathGenerator)
+      .on('mouseover', (d, i) => {
+        d3.select(`#countryLabel${d.properties.iso_a3}`).style('display', 'block');
+      })
+      .on('mouseout', (d, i) => {
+        d3.select(`#countryLabel${d.properties.iso_a3}`).style('display', 'none');
+      });
   });
 
 // d3.json('https://unpkg.com/world-atlas@1.1.4/world/50m.json')
