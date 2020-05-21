@@ -20,6 +20,12 @@
   justify-content: space-around;
 }
 
+#categories-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 
 /* footer CSS */
 .footer {
