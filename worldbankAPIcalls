@@ -24,10 +24,10 @@ Wage and salaried workers, female (% of female employment):
 http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SL.EMP.WORK.FE.ZS?format=json&date=2018
 
 Vulnerable Employment, Female (% Of Female Employment) (Modeled ILO Estimate):
-https://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SL.EMP.VULN.FE.ZS?format=json&date=2018
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SL.EMP.VULN.FE.ZS?format=json&date=2018
 
 Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate):
-https://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SL.TLF.CACT.FE.ZS?format=json&date=2018
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SL.TLF.CACT.FE.ZS?format=json&date=2018
 
 Ratio of female to male labor force participation rate:
-https://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SL.TLF.CACT.FM.ZS?format=json&date=2018
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SL.TLF.CACT.FM.ZS?format=json&date=2018

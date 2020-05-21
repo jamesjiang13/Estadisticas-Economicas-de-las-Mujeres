@@ -12,9 +12,9 @@
     "node": ">=8.1.0"
   },
   "scripts": {
-    "build": "webpack --watch",
-    "start": "node app.js",
-    "start:debug": "DEBUG=* node app.js"
+    "webpack": "webpack --watch",
+    "server": "nodemon app.js",
+    "debug": "DEBUG=* node app.js"
   },
   "dependencies": {
     "axios": "^0.18.1",

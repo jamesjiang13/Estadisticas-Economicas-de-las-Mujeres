@@ -5,13 +5,11 @@ const pathGenerator = d3.geoPath().projection(projection);
 
 d3.json('/javascripts/map/latinamerica.json')
   .then((topo) => {
-    console.log(topo.features);
     svg.selectAll('path')
       .data(topo.features)
       .enter()
       .append('path')
       .attr('d', pathGenerator)
-
       .on('mouseover', (d, i) => {
         d3.select(`#countryLabel${d.properties.iso_a3}`).style('display', 'block');
       })
