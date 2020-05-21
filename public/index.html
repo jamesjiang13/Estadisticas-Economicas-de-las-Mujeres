@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Ni Una Menos</title>
     <script type="text/javascript" src="./bundle.js"></script>
     <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
@@ -12,6 +12,7 @@
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
 
+    <link rel="icon" href="https://i7.pngguru.com/preview/183/253/125/gender-symbol-female-sign-gender-symbol.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap" rel="stylesheet">
   </head>
 
@@ -21,9 +22,20 @@
         <h2 class="nav-title">Women's social statistics across Latin America</h2>
       </nav>
 
-      <div class='world-map-container'>
-        <svg id="world-map"></svg>
-        <script src="javascripts/map/map.js"></script>
+      <div class="data-container">
+        <div class='world-map-container'>
+          <svg id="world-map"></svg>
+          <script src="javascripts/map/map.js"></script>
+        </div>
+        
+        <div id="categories-container">
+          <label for="gdpPerCap">
+            <input type="radio" name="wb-category" id="gdpPerCapita" value="NY.GDP.PCAP.CD">GDP Per Capita</input>
+          </label>
+          <input type="radio" name="wb-category" id="wageAndSalaryWorkersFemale" value="NY.GDP.PCAP.CD">% Wage and Salaried Workers - Female</input>
+          <input type="radio" name="wb-category" id="laborForceParticipationRate" value="NY.GDP.PCAP.CD">% Labor Force Participation Rate - Female</input>
+          <script src="index.js"></script>
+        </div>
       </div>
 
       <footer class='footer'>

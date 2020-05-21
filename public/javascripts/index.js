@@ -1,15 +1,26 @@
-// let query = "grace hopper";
-// axios.get(`/search?string=${query}`)
-//     .then((response) => {
-//         console.log(response);
-//     })
-//     .catch(function (error) {
-//         console.log(error);
-//     });
+const axios = require('axios');
 
-// axios.get('/licCountries')
-//     .then((response) => {
-//         console.log(response);
-//     })
-//     .catch((err) => console.log(err));
-// });
+const educationAttainmentFemale = 'SE.SEC.CUAT.LO.FE.ZS';
+const educationAttainmentMale = 'SE.SEC.CUAT.LO.MA.ZS'; // source = 2
+const lowerSecondaryCompletionFemale = 'SE.SEC.CMPT.LO.FE.ZS'; // source = 2
+const lowerSecondaryCompletionMale = 'SE.SEC.CMPT.LO.MA.ZS'; // source = 2
+const adolescentFertilityRate = 'SP.ADO.TFRT'; // source = 15
+const gdpPerCapita = 'NY.GDP.PCAP.CD'; // source = 2
+const wageAndSalaryWorkersFemale = 'SL.EMP.WORK.FE.ZS';
+const vulnurableEmploymentFemale = 'SL.EMP.VULN.FE.ZS';
+const laborForceParticipationRate = 'SL.TLF.CACT.FE.ZS';
+const ratioLaborForceParticipation = 'SL.TLF.CACT.FM.ZS';
+
+const getData = (worldBankDatabase) => {
+  axios.get(`/countriesData?string=${worldBankDatabase}`)
+    .then((response) => console.log(response))
+    .catch((err) => console.log(err));
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const gdpPerCap = document.getElementById('categories-container');
+  const wageAndSalary = document.getElementById('wageAndSalaryWorkersFemale');
+  // const LFPR = document.getElementById('laborForceParticipationRate');
+
+  gdpPerCap.onclick(e) = getData(e.target.value);
+});

@@ -1,26 +1,33 @@
-https://databank.worldbank.org/indicator/SL.EMP.VULN.FE.ZS?id=2ddc971b&report_name=Gender_Indicators_Report&populartype=series
 
-fields:
-education attainment, at least completed lower secondary, population 25+, female % (cumulative)
-education attainment, at least completed lower secondary, population 25+, male % (cumulative)
-GDP per capita, current USD 
-labor force participation rate, female, ilo estimate
-vulnurable employment -female
-lower secondary completion rate - female (% of age group)
+Gender / Education resources:
+Educational attainment, at least completed lower secondary, population 25+, female (%) (cumulative)
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SE.SEC.CUAT.LO.FE.ZS?format=json&date=2018
+
+Educational attainment, at least completed lower secondary, population 25+, male (%) (cumulative)
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SE.SEC.CUAT.LO.MA.ZS?format=json&date=2018
+
+Lower secondary completion rate, female (% of relevant age group)
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SE.SEC.CMPT.LO.FE.ZS?format=json&date=2018
+
+Lower secondary completion rate, male (% of relevant age group)
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SE.SEC.CMPT.LO.MA.ZS?format=json&date=2018
+
+Adolescent fertility rate (births per 1,000 women ages 15-19)
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SP.ADO.TFRT?format=json&date=2018
 
 
+Economic resources:
+GDP per capita (current US$)
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/NY.GDP.PCAP.CD?format=json&date=2018
 
-https://api.data.unicef.org/sdmx/
+Wage and salaried workers, female (% of female employment): 
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SL.EMP.WORK.FE.ZS?format=json&date=2018
 
-global water/heat chart 
+Vulnerable Employment, Female (% Of Female Employment) (Modeled ILO Estimate):
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SL.EMP.VULN.FE.ZS?format=json&date=2018
 
-Ratio of female to male labor force participation rate (%) (modeled ILO estimate):
-https://data.worldbank.org/indicator/SL.TLF.CACT.FM.ZS?view=map&year=2019?format=json
-https://data.worldbank.org/indicator/SL.TLF.CACT.FM.ZS?end=2018&start=2000&id=ARG&format=json
+Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate):
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SL.TLF.CACT.FE.ZS?format=json&date=2018
 
-https://data.worldbank.org/indicator/SL.TLF.CACT.FM.ZS?end=2018&format=json&id=ARG&start=2000
-
-Wage and salaried workers, female (% of female employment)
-Wage and salaried workers (employees) are those workers who hold the type of jobs defined as "paid employment jobs," where the incumbents hold explicit (written or oral) or implicit employment contracts that give them a basic remuneration that is not directly dependent upon the revenue of the unit for which they work.
-https://data.worldbank.org/indicator/SL.EMP.WORK.FE.ZS?view=chart
-https://data.worldbank.org/indicator/SL.EMP.WORK.FE.ZS?locations=AR-BO-CL
+Ratio of female to male labor force participation rate:
+http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/SL.TLF.CACT.FM.ZS?format=json&date=2018

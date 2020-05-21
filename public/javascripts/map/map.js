@@ -5,7 +5,6 @@ const pathGenerator = d3.geoPath().projection(projection);
 
 d3.json('/javascripts/map/latinamerica.json')
   .then((topo) => {
-    console.log(topo.features);
     svg.selectAll('path')
       .data(topo.features)
       .enter()
