@@ -18,18 +18,6 @@ app.get('/countriesData', (request, response) => {
     });
 });
 
-// // create a search route
-// app.get('/search', (request, response) => {
-//   console.log(request)
-//   fetch(`http://openlibrary.org/search.json?q=${request.query.string}`)
-//     .then((response) => response.text()).then((body) => {
-//       const results = JSON.parse(body);
-//       console.log(results);
-//       response.send(results);
-//     });
-// });
-
-
 app.listen(PORT, () => {
   console.log(__dirname);
   console.log(`listening on ${PORT}`);

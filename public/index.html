@@ -29,12 +29,39 @@
         </div>
         
         <div id="categories-container">
-          <label for="gdpPerCap">
-            <input type="radio" name="wb-category" id="gdpPerCapita" value="NY.GDP.PCAP.CD">GDP Per Capita</input>
+          Economic Indicators
+          <label>
+            <input type="radio" name="wb-category" value="NY.GDP.PCAP.CD"></input>
+            GDP Per Capita (current US$)
           </label>
-          <input type="radio" name="wb-category" id="wageAndSalaryWorkersFemale" value="NY.GDP.PCAP.CD">% Wage and Salaried Workers - Female</input>
-          <input type="radio" name="wb-category" id="laborForceParticipationRate" value="NY.GDP.PCAP.CD">% Labor Force Participation Rate - Female</input>
-          <script src="index.js"></script>
+          <label>
+            <input type="radio" name="wb-category" value="SL.EMP.WORK.FE.ZS">% Wage and Salaried Workers - Female</input>
+          </label>
+          <label>
+            <input type="radio" name="wb-category" value="SL.TLF.CACT.FE.ZS">Labor force participation rate, female (% of female population ages 15+)</input>
+          </label>
+          <label>
+            <input type="radio" name="wb-category" value="SL.TLF.CACT.FM.ZS">Ratio of female to male labor force participation rate</input>
+          </label>
+          <label>
+            <input type="radio" name="wb-category" value="SL.EMP.VULN.FE.ZS">Vulnerable Employment, Female (% Of Female Employment)</input>
+          </label>
+          Social and Educational Indicators
+          <label>
+            <input type="radio" name="wb-category" value="SE.SEC.CMPT.LO.MA.ZS">Lower secondary completion rate, male (% of relevant age group)</input>
+          </label>
+          <label>
+            <input type="radio" name="wb-category" value="SE.SEC.CMPT.LO.FE.ZS">Lower secondary completion rate, female (% of relevant age group)</input>
+          </label>
+          <label>
+            <input type="radio" name="wb-category" value="SE.SEC.CUAT.LO.MA.ZS">Educational attainment (lower secondary), population 25+, male (%)</input>
+          </label>
+          <label>
+            <input type="radio" name="wb-category" value="SE.SEC.CUAT.LO.FE.ZS">Educational attainment (lower secondary), population 25+, female (%)</input>
+          </label>
+          <label>
+            <input type="radio" name="wb-category" value="SP.ADO.TFRT">Adolescent fertility rate (births per 1,000 women ages 15-19)</input>
+          </label>
         </div>
       </div>
 
