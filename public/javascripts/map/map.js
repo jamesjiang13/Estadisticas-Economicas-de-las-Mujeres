@@ -11,6 +11,7 @@ d3.json('/javascripts/map/latinamerica.json')
       .enter()
       .append('path')
       .attr('d', pathGenerator)
+
       .on('mouseover', (d, i) => {
         d3.select(`#countryLabel${d.properties.iso_a3}`).style('display', 'block');
       })

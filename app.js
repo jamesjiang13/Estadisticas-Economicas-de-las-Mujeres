@@ -10,15 +10,15 @@ app.get('/', (request, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-// app.get('/licCountries', (req, res) => {
-//   fetch('http://api.worldbank.org/V2/country?incomeLevel=LIC?format=JSON')
-//   .then((response) => res.json(response));
-//   .then((body) => {
-//     let results = JSON.parse(body);
-//     console.log(results);  // logs to server
-//     response.send(results); // sends to frontend
-//   });
-// });
+app.get('/licCountries', (req, res) => {
+  fetch('http://api.worldbank.org/V2/country?incomeLevel=LIC&format=JSON')
+  .then((response) => res.json(response));
+  .then((body) => {
+    let results = JSON.parse(body);
+    console.log(results);  // logs to server
+    response.send(results); // sends to frontend
+  });
+});
 
 // create a search route
 // app.get('/search', (request, response) => {
