@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8000;
 app.use(express.static('public'));
 
 app.get('/countriesData', (request, response) => {
-  fetch(`http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/${request.query.string}?format=json&date=2000:2018&per_page=310`)
+  fetch(`http://api.worldbank.org/v2/country/arg;bol;bra;chl;col;cri;ecu;gtm;hnd;mex;nic;pan;pry;per;ury;ven/indicator/${request.query.string}?format=json&date=2000:2018&per_page=340`)
     .then((response) => response.text())
     .then((body) => {
       const results = JSON.parse(body);

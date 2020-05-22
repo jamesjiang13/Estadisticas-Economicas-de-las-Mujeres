@@ -16,11 +16,13 @@ const getData = (worldBankDatabase) => {
   axios.get(`/countriesData?string=${worldBankDatabase}`)
     .then((response) => {
       response.data[1].forEach((row) => {
-        if (!totalData[row.country.value]) {
-          totalData[row.country.value] = {};
-          totalData[row.country.value][row.date] = row.value || 'No Data';
+        // console.log(row);
+        const countryName = row.country.value.split(',')[0];
+        if (!totalData[countryName]) {
+          totalData[countryName] = {};
+          totalData[countryName][row.date] = row.value || 'No Data';
         } else {
-          totalData[row.country.value][row.date] = row.value || 'No Data';
+          totalData[countryName][row.date] = row.value || 'No Data';
         }
       });
     })
@@ -30,8 +32,19 @@ const getData = (worldBankDatabase) => {
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('categories-container').addEventListener('click', (e) => {
     getData(e.target.value);
-    console.log(totalData);
   });
+
+  // const currentYearData = (year) => {
+  //   let dataSet = {};
+  //   dataSet = Object.keys(totalData).map((country) => {
+  //     console.log(country);
+  //     debugger;
+  //     dataSet[totalData.country] = totalData.country.year;
+  //     // dataSet[country] = country.year;
+  //   });
+  //   console.log(dataSet);
+  //   return dataSet;
+  // };
 
   const slider = document.getElementById('slider');
   const output = document.getElementById('display-year');
@@ -39,16 +52,29 @@ document.addEventListener('DOMContentLoaded', () => {
   slider.onchange = () => {
     const year = slider.value;
     output.innerHTML = year;
-    currentYearData(year);
+    // currentYearData(year);
   };
 
-  const currentYearData = (year) => {
-    let dataSet = {};
-    dataSet = Object.keys(totalData).map((country) => {
-      dataSet[totalData.country] = totalData.country.year;
-      // dataSet[country] = country.year;
-    });
-    console.log(dataSet);
-    return dataSet;
-  };
+  const latamMap = document.getElementById('latam-map');
+
+  latamMap.addEventListener('mouseover', (e) => {
+    // console.log(e.target.__data__.properties.brk_name);
+    country = e.target.__data__.properties.brk_name;
+    if (country) {
+      const label = document.getElementById('hover-tooltip');
+      const selectedYear = document.getElementById('slider').value;
+      // console.log(totalData);
+      // console.log(selectedYear);
+      const countryValue = totalData[country][selectedYear];
+      // console.log(countryValue);
+      label.innerHTML = country.concat(`: ${countryValue.toFixed(2)}`);
+      label.style.opacity = 1;
+    }
+  });
+
+  latamMap.addEventListener('mouseout', (e) => {
+    const label = document.getElementById('hover-tooltip');
+    label.innerHTML = '';
+    label.style.opacity = 0;
+  });
 });
