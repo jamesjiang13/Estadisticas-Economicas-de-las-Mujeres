@@ -10,7 +10,7 @@ const axios = require('axios');
 // const vulnurableEmploymentFemale = 'SL.EMP.VULN.FE.ZS';
 // const laborForceParticipationRate = 'SL.TLF.CACT.FE.ZS';
 // const ratioLaborForceParticipation = 'SL.TLF.CACT.FM.ZS';
-let totalData = {};
+const totalData = {};
 
 const getData = (worldBankDatabase) => {
   axios.get(`/countriesData?string=${worldBankDatabase}`)
@@ -18,9 +18,9 @@ const getData = (worldBankDatabase) => {
       response.data[1].forEach((row) => {
         if (!totalData[row.country.value]) {
           totalData[row.country.value] = {};
-          totalData[row.country.value][row.date] = row.value || "No Data";
+          totalData[row.country.value][row.date] = row.value || 'No Data';
         } else {
-          totalData[row.country.value][row.date] = row.value || "No Data";
+          totalData[row.country.value][row.date] = row.value || 'No Data';
         }
       });
     })
@@ -33,13 +33,22 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(totalData);
   });
 
-  const slider = document.getElementById("slider");
-  let output = document.getElementById("display-year");
+  const slider = document.getElementById('slider');
+  const output = document.getElementById('display-year');
+
   slider.onchange = () => {
-    output.innerHTML = slider.value;
+    const year = slider.value;
+    output.innerHTML = year;
+    currentYearData(year);
   };
 
-  const mapData = (year) => {
-    
+  const currentYearData = (year) => {
+    let dataSet = {};
+    dataSet = Object.keys(totalData).map((country) => {
+      dataSet[totalData.country] = totalData.country.year;
+      // dataSet[country] = country.year;
+    });
+    console.log(dataSet);
+    return dataSet;
   };
 });
