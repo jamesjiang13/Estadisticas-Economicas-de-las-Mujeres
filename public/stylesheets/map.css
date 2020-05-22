@@ -1,20 +1,20 @@
-.world-map-container {
+.latam-map-container {
   height: 100vh;
   width: 600px;
 }
-.world-map-container body {
+.latam-map-container body {
   margin: 0px;
   overflow: hidden;
   background-color: #2A2C39;
 }
 
-.world-map-container path {
+.latam-map-container path {
   fill: darkgrey;
   stroke-opacity: 50%;
   stroke: black;
 }
 
-#world-map {
+#latam-map {
   width: 100%;
   height: 100%;
   display: flex;
