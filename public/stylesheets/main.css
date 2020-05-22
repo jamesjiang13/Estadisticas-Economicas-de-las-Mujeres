@@ -11,7 +11,7 @@
   justify-content: center;
   width: 100%;
   font-size: 35px;
-  padding: 15px 0px;
+  padding: 20px 0px;
 }
 
 /* data fields CSS */
@@ -25,7 +25,6 @@
   flex-direction: column;
   align-items: flex-start;
 }
-
 
 /* footer CSS */
 .footer {

@@ -27,43 +27,61 @@
           <svg id="world-map"></svg>
           <script src="javascripts/map/map.js"></script>
         </div>
-        
-        <div id="categories-container">
-          Economic Indicators
-          <label>
-            <input type="radio" name="wb-category" value="NY.GDP.PCAP.CD"></input>
-            GDP Per Capita (current US$)
-          </label>
-          <label>
-            <input type="radio" name="wb-category" value="SL.EMP.WORK.FE.ZS">% Wage and Salaried Workers - Female</input>
-          </label>
-          <label>
-            <input type="radio" name="wb-category" value="SL.TLF.CACT.FE.ZS">Labor force participation rate, female (% of female population ages 15+)</input>
-          </label>
-          <label>
-            <input type="radio" name="wb-category" value="SL.TLF.CACT.FM.ZS">Ratio of female to male labor force participation rate</input>
-          </label>
-          <label>
-            <input type="radio" name="wb-category" value="SL.EMP.VULN.FE.ZS">Vulnerable Employment, Female (% Of Female Employment)</input>
-          </label>
-          Social and Educational Indicators
-          <label>
-            <input type="radio" name="wb-category" value="SE.SEC.CMPT.LO.MA.ZS">Lower secondary completion rate, male (% of relevant age group)</input>
-          </label>
-          <label>
-            <input type="radio" name="wb-category" value="SE.SEC.CMPT.LO.FE.ZS">Lower secondary completion rate, female (% of relevant age group)</input>
-          </label>
-          <label>
-            <input type="radio" name="wb-category" value="SE.SEC.CUAT.LO.MA.ZS">Educational attainment (lower secondary), population 25+, male (%)</input>
-          </label>
-          <label>
-            <input type="radio" name="wb-category" value="SE.SEC.CUAT.LO.FE.ZS">Educational attainment (lower secondary), population 25+, female (%)</input>
-          </label>
-          <label>
-            <input type="radio" name="wb-category" value="SP.ADO.TFRT">Adolescent fertility rate (births per 1,000 women ages 15-19)</input>
-          </label>
+        <div>
+          <div id="categories-container">
+            Economic Indicators
+            <label>
+              <input type="radio" name="wb-category" value="NY.GDP.PCAP.CD"></input>
+              GDP Per Capita (current US$)
+            </label>
+            <label>
+              <input type="radio" name="wb-category" value="SL.EMP.WORK.FE.ZS"></input>
+              % Wage and Salaried Workers - Female
+            </label>
+            <label>
+              <input type="radio" name="wb-category" value="SL.TLF.CACT.FE.ZS"></input>
+              Labor force participation rate, female (% of female population ages 15+)
+            </label>
+            <label>
+              <input type="radio" name="wb-category" value="SL.TLF.CACT.FM.ZS"></input>
+              Ratio of female to male labor force participation rate
+            </label>
+            <label>
+              <input type="radio" name="wb-category" value="SL.EMP.VULN.FE.ZS"></input>
+              Vulnerable Employment, Female (% Of Female Employment)
+            </label><br>  
+            Social and Educational Indicators
+            <label>
+              <input type="radio" name="wb-category" value="SE.SEC.CMPT.LO.MA.ZS"></input>
+              Lower secondary completion rate, male (% of relevant age group)
+            </label>
+            <label>
+              <input type="radio" name="wb-category" value="SE.SEC.CMPT.LO.FE.ZS"></input>
+              Lower secondary completion rate, female (% of relevant age group)
+            </label>
+            <label>
+              <input type="radio" name="wb-category" value="SE.SEC.CUAT.LO.MA.ZS"></input>
+              Educational attainment (lower secondary), population 25+, male (%)
+            </label>
+            <label>
+              <input type="radio" name="wb-category" value="SE.SEC.CUAT.LO.FE.ZS"></input>
+              Educational attainment (lower secondary), population 25+, female (%)
+            </label>
+            <label>
+              <input type="radio" name="wb-category" value="SP.ADO.TFRT"></input>
+              Adolescent fertility rate (births per 1,000 women ages 15-19)
+            </label>
+          </div>
+
+          <div class="slidecontainer">
+            <input type="range" min="2000" max="2018" value="2018" step="1" id="slider"></input>
+            <span id="display-year">2018</span>
+          </div>
+
         </div>
+
       </div>
+
 
       <footer class='footer'>
         <div class='footerDiv'>
