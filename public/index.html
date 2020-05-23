@@ -19,11 +19,11 @@
   <body>
     <div class="main"> 
       <nav class="nav">
-        <h2 class="nav-title">Women's social statistics across Latin America</h2>
+        <!-- <h2 class="nav-title">Women's social statistics across Latin America</h2> -->
+        <h2 class="nav-title">Estadisticas Economicas de las Mujeres</h2>
       </nav>
       <div id='hover-tooltip'></div>
       <div class="data-container">
-        <!-- <div id="hover-tooltip"></div> -->
         <div class='latam-map-container'>
           <svg id="latam-map"></svg>
           <script src="javascripts/map/map.js"></script>
@@ -78,9 +78,11 @@
             <input type="range" min="2000" max="2018" value="2018" step="1" id="slider"></input>
             <span id="display-year">2018</span>
           </div>
-
         </div>
-
+        <div>
+          <svg id="bar-graph"></svg>
+          <script src="javascripts/chart/line.js"></script>
+        </div>
       </div>
 
 

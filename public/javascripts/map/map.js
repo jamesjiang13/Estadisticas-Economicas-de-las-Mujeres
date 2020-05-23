@@ -1,4 +1,4 @@
-const svg = d3.select('svg');
+const latamMap = d3.select('#latam-map');
 
 const projection = d3.geoMercator().scale(330).center([-40, -5]);
 const pathGenerator = d3.geoPath().projection(projection);
@@ -24,36 +24,50 @@ const color = d3.scaleLog()
 
 d3.json('/javascripts/map/latinamerica.json')
   .then((topo) => {
-    svg.selectAll('path')
+    latamMap.selectAll('path')
       .data(topo.features)
       .enter()
       .append('path')
-      .attr('d', pathGenerator);
+      .attr('d', pathGenerator)
+      .on('mouseover', function(d,i) {
+        d3.select(this).style('fill', '#efefef');
+      })
+      .on('mouseout', function(d,i) {
+        d3.select(this).style('fill', '#BABABA');
+      });
+      
       // .on('mouseover', tooltip.show)
       // .on('mouseout', tooltip.hide);
   });
 
-const latamMap = document.getElementById('latam-map');
+// const latamMap = document.getElementById('latam-map');
 
 document.onmousemove = (e) => {
   document.getElementById('hover-tooltip').style.left = e.pageX + 10 + 'px';
   document.getElementById('hover-tooltip').style.top = e.pageY + 10 + 'px';
 };
 
-latamMap.addEventListener('mouseover', (e) => {
-  country = e.target.__data__.properties.brk_name;
-  if (country) {
-    const label = document.getElementById('hover-tooltip');
-    label.innerHTML = country;
-    label.style.opacity = 1;
-  }
-});
+// svg.select("Guyana").style("fill", function(d) {return '#efefef'});
 
-latamMap.addEventListener('mouseout', (e) => {
-  const label = document.getElementById('hover-tooltip');
-  label.innerHTML = '';
-  label.style.opacity = 0;
-});
+// latamMap.addEventListener('mouseover', (e) => {
+//   country = e.target.__data__.properties.brk_name;
+//   if (country) {
+//     const label = document.getElementById('hover-tooltip');
+//     // const selectedYear = document.getElementById('slider').value;
+//     // const countryValue = dataSet.country[selectedYear];
+//     // console.log(selectedYear);
+//     // console.log(countryValue);
+
+//     label.innerHTML = country;
+//     label.style.opacity = 1;
+//   }
+// });
+
+// latamMap.addEventListener('mouseout', (e) => {
+//   const label = document.getElementById('hover-tooltip');
+//   label.innerHTML = '';
+//   label.style.opacity = 0;
+// });
 
 
 // d3.json('https://unpkg.com/world-atlas@1.1.4/world/50m.json')
