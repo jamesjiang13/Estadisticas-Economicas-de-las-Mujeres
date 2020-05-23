@@ -2,20 +2,16 @@
 
 Simple Node Backend for avoiding CORS issues in development
 - npm install
-- npm run build
-- npm start
+- npm run server
+- npm run webpack
 
 Technologies
 - express
 - axios
 - webpack
+- World Bank API
+- D3 / geoJSON
 
 Implementation
 
-This project allows you to serve your HTML and JS from a custom backend that performs API requests to an external API.
-
-app.js contains the routes that you need to get your data. Customize them according to the paths you wish to use in your code, and the API you wish to access
-
-Write your JS in the javascripts folder; your entry file is index.js.
-
-In the entry file 
+This project was inspired by my time living in Latin America combined with the "Ni Una Mas" movement. Women in Latin America face challenges that I could not relate to 

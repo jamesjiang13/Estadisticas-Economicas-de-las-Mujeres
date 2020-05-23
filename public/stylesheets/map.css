@@ -5,11 +5,11 @@
 .latam-map-container body {
   margin: 0px;
   overflow: hidden;
-  background-color: #2A2C39;
+  background-color: blue;
 }
 
 .latam-map-container path {
-  fill: darkgrey;
+  fill: #BABABA;
   stroke-opacity: 50%;
   stroke: black;
 }

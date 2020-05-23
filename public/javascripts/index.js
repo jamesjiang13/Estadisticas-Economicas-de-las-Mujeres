@@ -20,11 +20,12 @@ const getData = (worldBankDatabase) => {
         const countryName = row.country.value.split(',')[0];
         if (!totalData[countryName]) {
           totalData[countryName] = {};
-          totalData[countryName][row.date] = row.value || 'No Data';
+          totalData[countryName][row.date] = row.value;
         } else {
-          totalData[countryName][row.date] = row.value || 'No Data';
+          totalData[countryName][row.date] = row.value;
         }
-      });
+      })
+      console.log(response);
     })
     .catch((err) => console.log(err));
 };
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   latamMap.addEventListener('mouseover', (e) => {
     // console.log(e.target.__data__.properties.brk_name);
-    country = e.target.__data__.properties.brk_name;
+    let country = e.target.__data__.properties.brk_name;
     if (country) {
       const label = document.getElementById('hover-tooltip');
       const selectedYear = document.getElementById('slider').value;
@@ -67,12 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // console.log(selectedYear);
       const countryValue = totalData[country][selectedYear];
       // console.log(countryValue);
-      label.innerHTML = country.concat(`: ${countryValue.toFixed(2)}`);
+      label.innerHTML = country.concat(`: ${(countryValue) ? countryValue.toFixed(2) : 'No Data'}`);
       label.style.opacity = 1;
     }
   });
 
-  latamMap.addEventListener('mouseout', (e) => {
+  latamMap.addEventListener('mouseout', () => {
     const label = document.getElementById('hover-tooltip');
     label.innerHTML = '';
     label.style.opacity = 0;

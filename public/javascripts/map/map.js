@@ -1,4 +1,4 @@
-const svg = d3.select('svg');
+const latamMap = d3.select('#latam-map');
 
 const projection = d3.geoMercator().scale(330).center([-40, -5]);
 const pathGenerator = d3.geoPath().projection(projection);
@@ -24,11 +24,18 @@ const color = d3.scaleLog()
 
 d3.json('/javascripts/map/latinamerica.json')
   .then((topo) => {
-    svg.selectAll('path')
+    latamMap.selectAll('path')
       .data(topo.features)
       .enter()
       .append('path')
-      .attr('d', pathGenerator);
+      .attr('d', pathGenerator)
+      .on('mouseover', function(d,i) {
+        d3.select(this).style('fill', '#efefef');
+      })
+      .on('mouseout', function(d,i) {
+        d3.select(this).style('fill', '#BABABA');
+      });
+      
       // .on('mouseover', tooltip.show)
       // .on('mouseout', tooltip.hide);
   });
@@ -39,6 +46,8 @@ document.onmousemove = (e) => {
   document.getElementById('hover-tooltip').style.left = e.pageX + 10 + 'px';
   document.getElementById('hover-tooltip').style.top = e.pageY + 10 + 'px';
 };
+
+// svg.select("Guyana").style("fill", function(d) {return '#efefef'});
 
 // latamMap.addEventListener('mouseover', (e) => {
 //   country = e.target.__data__.properties.brk_name;
