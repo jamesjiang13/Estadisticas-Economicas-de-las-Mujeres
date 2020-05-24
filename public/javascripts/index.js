@@ -1,3 +1,5 @@
+import BarGraph from './chart/bar';
+
 const axios = require('axios');
 
 const totalData = {};
@@ -42,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
   slider.onchange = () => {
     const year = slider.value;
     output.innerHTML = year;
+    const graph = new BarGraph(totalData, year);
+    graph.draw();
   };
 
   const latamMap = document.getElementById('latam-map');
