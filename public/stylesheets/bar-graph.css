@@ -1,0 +1,10 @@
+.bar-graph-container {
+  width: 800px;
+  height: 500px;
+}
+
+#bar-graph {
+  display: flex;
+  width: auto;
+  height: auto;
+}

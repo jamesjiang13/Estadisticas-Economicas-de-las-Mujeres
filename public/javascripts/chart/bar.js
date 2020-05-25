@@ -1,5 +1,6 @@
 // bar graph shows every country's result for that year
-class BarGraph {
+
+export default class BarGraph {
   constructor(dataset, year) {
     this.dataset = dataset;
     this.year = year;
@@ -8,12 +9,12 @@ class BarGraph {
   draw() {
     const svg = d3.select('#bar-graph');
 
-    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
-    const width = 600;
-    const height = 300;
+    const margin = 20;
+    const width = 800;
+    const height = 500;
 
     const barGraph = svg.append('g')
-      .attr('transform', `translate(${margin.left}, ${margin.top})`);
+      .attr('transform', `translate(${margin}, ${margin})`);
 
     // this builds the x-axis, countries for me
     const xScale = d3.scaleBand()
@@ -23,21 +24,33 @@ class BarGraph {
 
     const yScale = d3.scaleLinear()
       .range([0, height])
-      .domain(Object.keys.map((country) => {
-        return this.dataset[country][this.year];
-      }));
+      // .domain([0, 100]);
+      .domain(Object.keys(this.dataset).map((country) => this.dataset[country][this.year]));
+
+    barGraph.append('g')
+      .call(d3.axisLeft(yScale));
+
+    barGraph.append('g')
+      .call(d3.axisBottom(xScale));
+
+    const currentYearData = {};
+    currentYearData = Object.keys(this.dataset).map((country) => {
+      let pair = { country: this.dataset[country][this.year] };
+      debugger
+      
+    });
+    debugger
 
     // const barGroups =
     barGraph.selectAll()
-      .data(this.dataset)
+      .data(currentYearData) // need to fix data format to {country1: value1, country2: value2 }
       .enter()
       .append('g')
       .append('rect')
       .attr('class', 'bar')
-      .attr('x', (g) => console.log(g))
-      // .attr('x', (g) => xScale(g.language))
-      // .attr('y', (g) => yScale(g.value))
-      .attr('height', (g) => height - yScale(g.value))
+      .attr('x', (g) => xScale(Object.keys(this.dataset).map((country) => country)))
+      .attr('y', (g) => yScale(Object.keys(this.dataset).map((country) => this.dataset[country][this.year])))
+      .attr('height', (g) => yScale(Object.keys(this.dataset).map((country) => this.dataset[country][this.year])))
       .attr('width', xScale.bandwidth());
   }
 }

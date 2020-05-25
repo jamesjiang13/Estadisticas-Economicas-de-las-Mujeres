@@ -8,7 +8,6 @@ const getData = (worldBankDatabase) => {
   axios.get(`/countriesData?string=${worldBankDatabase}`)
     .then((response) => {
       response.data[1].forEach((row) => {
-        // console.log(row);
         const countryName = row.country.value.split(',')[0];
         if (!totalData[countryName]) {
           totalData[countryName] = {};
@@ -17,14 +16,21 @@ const getData = (worldBankDatabase) => {
           totalData[countryName][row.date] = row.value;
         }
       });
-      console.log(response);
     })
     .catch((err) => console.log(err));
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.getElementById('slider');
+  const output = document.getElementById('display-year');
+  const year = slider.value;
+
   document.getElementById('categories-container').addEventListener('click', (e) => {
-    getData(e.target.value);
+    getData(e.target.value)
+      .then((data) => {
+        const graph = new BarGraph(data, year);
+        graph.draw();
+      });
   });
 
   // const currentYearData = (year) => {
@@ -37,9 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   //   console.log(dataSet);
   //   return dataSet;
   // };
-
-  const slider = document.getElementById('slider');
-  const output = document.getElementById('display-year');
 
   slider.onchange = () => {
     const year = slider.value;
