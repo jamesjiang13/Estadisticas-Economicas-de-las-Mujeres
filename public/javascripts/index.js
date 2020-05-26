@@ -2,42 +2,47 @@ import BarGraph from './chart/bar';
 
 const axios = require('axios');
 
-const totalData = {};
-
-const getData = (worldBankDatabase) => {
-  axios.get(`/countriesData?string=${worldBankDatabase}`)
-    .then((response) => {
-      response.data[1].forEach((row) => {
-        const countryName = row.country.value.split(',')[0];
-        if (!totalData[countryName]) {
-          totalData[countryName] = {};
-          totalData[countryName][row.date] = row.value;
-          totalData[countryName].abbrev = row.countryiso3code;
-        } else {
-          totalData[countryName][row.date] = row.value;
-        }
-      });
-    })
-    .catch((err) => console.log(err));
-};
-
 document.addEventListener('DOMContentLoaded', () => {
+
+  const totalData = {};
+
+  function getData(worldBankDatabase) {
+    return axios.get(`/countriesData?string=${worldBankDatabase}`)
+      .then((response) => {
+        response.data[1].forEach((row) => {
+          const countryName = row.country.value.split(',')[0];
+          if (!totalData[countryName]) {
+            totalData[countryName] = {};
+            totalData[countryName][row.date] = row.value;
+            totalData[countryName].abbrev = row.countryiso3code;
+          } else {
+            totalData[countryName][row.date] = row.value;
+          }
+        });
+
+        return totalData;
+      })
+      .catch((err) => console.log(err));
+  }
+
+  function createGraph(data, yr) {
+    const graph = new BarGraph(data, yr);
+    graph.draw();
+  }
+
   const slider = document.getElementById('slider');
   const output = document.getElementById('display-year');
   let year = slider.value;
 
   document.getElementById('categories-container').addEventListener('click', (e) => {
-    getData(e.target.value);
-
-    const graph = new BarGraph(totalData, year);
-    graph.draw();
+    getData(e.target.value)
+      .then((totalData) => createGraph(totalData, year));
   });
 
   slider.onchange = () => {
     year = slider.value;
     output.innerHTML = year;
-    const graph = new BarGraph(totalData, year);
-    graph.draw();
+    createGraph(totalData, year);
   };
 
   const latamMap = document.getElementById('latam-map');
@@ -87,5 +92,4 @@ document.addEventListener('DOMContentLoaded', () => {
     ele.innerHTML = '';
     ele.style.opacity = 0;
   });
-
 });

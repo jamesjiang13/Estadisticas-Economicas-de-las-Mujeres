@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Latin America Data Visualization",
   "main": "app.js",
-  "repository": "",
+  "repository": "https://github.com/jamesjiang13/Estadisticas-Economicas-de-las-Mujeres",
   "license": "MIT",
   "directories": {
     "lib": "lib"
@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "webpack": "webpack --watch",
+    "postinstall": "webpack",
+    "build": "webpack",
     "server": "nodemon app.js",
     "debug": "DEBUG=* node app.js"
   },

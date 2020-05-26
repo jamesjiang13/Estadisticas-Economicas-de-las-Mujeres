@@ -53,7 +53,7 @@
   align-items: center;
   justify-content: space-between;
   bottom: 0;
-  width: 100%;
+  width: -webkit-fill-available;
   height: 50px;
   background-color: #67727e;
   padding: 0px 20px;
