@@ -15,7 +15,8 @@
     "webpack": "webpack --watch",
     "server": "nodemon app.js",
     "start": "node app.js",
-    "debug": "DEBUG=* node app.js"
+    "debug": "DEBUG=* node app.js",
+    "postinstall": "webpack"
   },
   "dependencies": {
     "axios": "^0.18.1",
