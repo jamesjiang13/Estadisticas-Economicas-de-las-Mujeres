@@ -8,6 +8,10 @@ const PORT = process.env.PORT || 8000;
 
 app.use(express.static('public'));
 
+app.get('/', (request, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
 app.get('/countriesData', (request, response) => {
   fetch(`http://api.worldbank.org/v2/country/arg;blz;bol;bra;chl;col;cri;cub;ecu;slv;gtm;hti;hnd;jam;mex;nic;pan;pry;per;ury;usa;ven/indicator/${request.query.string}?format=json&date=2001:2018&per_page=500`)
     .then((response) => response.text())
@@ -17,7 +21,7 @@ app.get('/countriesData', (request, response) => {
     });
 });
 
-// app.listen(PORT, () => {
-//   console.log(__dirname);
-//   console.log(`listening on ${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(__dirname);
+  console.log(`listening on ${PORT}`);
+});
