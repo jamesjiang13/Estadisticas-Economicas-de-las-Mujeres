@@ -3,21 +3,6 @@ const latamMap = d3.select('#latam-map');
 const projection = d3.geoMercator().scale(330).center([-40, -5]);
 const pathGenerator = d3.geoPath().projection(projection);
 
-// const tooltip = d3.tip()
-//   .attr('class', 'd3-tip')
-//   .offset([-5, 0])
-//   .html((d) => {
-//     const dataRow = e.target.__data__;
-//     if (dataRow) {
-//       console.log(dataRow);
-//       return `${dataRow.states}: ${dataRow.mortality}`;
-//     }
-//     console.log('no dataRow', d);
-//     return `${d.properties.name}: No data.`;
-//   });
-
-// svg.call(tooltip);
-
 const color = d3.scaleLog()
   .domain([0, 100])
   .range(d3.schemeBlues[4]);
@@ -35,12 +20,7 @@ d3.json('/javascripts/map/latinamerica.json')
       .on('mouseout', function(d,i) {
         d3.select(this).style('fill', '#BABABA');
       });
-      
-      // .on('mouseover', tooltip.show)
-      // .on('mouseout', tooltip.hide);
   });
-
-// const latamMap = document.getElementById('latam-map');
 
 document.onmousemove = (e) => {
   document.getElementById('hover-tooltip').style.left = e.pageX + 10 + 'px';
@@ -68,7 +48,6 @@ document.onmousemove = (e) => {
 //   label.innerHTML = '';
 //   label.style.opacity = 0;
 // });
-
 
 // d3.json('https://unpkg.com/world-atlas@1.1.4/world/50m.json')
 //   .then((topo) => {
