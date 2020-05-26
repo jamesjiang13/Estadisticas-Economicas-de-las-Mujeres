@@ -23,29 +23,16 @@ const getData = (worldBankDatabase) => {
 document.addEventListener('DOMContentLoaded', () => {
   const slider = document.getElementById('slider');
   const output = document.getElementById('display-year');
-  const year = slider.value;
+  let year = slider.value;
 
   document.getElementById('categories-container').addEventListener('click', (e) => {
-    getData(e.target.value)
-      .then((data) => {
-        const graph = new BarGraph(data, year);
-        graph.draw();
-      });
+    getData(e.target.value);
+    const graph = new BarGraph(totalData, year);
+    graph.draw();
   });
 
-  // const currentYearData = (year) => {
-  //   let dataSet = {};
-  //   dataSet = Object.keys(totalData).map((country) => {
-  //     console.log(country);
-  //     dataSet[totalData.country] = totalData.country.year;
-  //     // dataSet[country] = country.year;
-  //   });
-  //   console.log(dataSet);
-  //   return dataSet;
-  // };
-
   slider.onchange = () => {
-    const year = slider.value;
+    year = slider.value;
     output.innerHTML = year;
     const graph = new BarGraph(totalData, year);
     graph.draw();

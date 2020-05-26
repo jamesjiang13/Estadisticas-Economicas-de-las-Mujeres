@@ -23,12 +23,13 @@
         <h2 class="nav-title">Estadisticas Economicas de las Mujeres</h2>
       </nav>
       <div id='hover-tooltip'></div>
+
       <div class="data-container">
         <div class='latam-map-container'>
           <svg id="latam-map"></svg>
           <script src="javascripts/map/map.js"></script>
         </div>
-        <div>
+        <div class="right-data-container">
           <div id="categories-container">
             Economic Indicators
             <label>
@@ -78,13 +79,13 @@
             <input type="range" min="2000" max="2018" value="2018" step="1" id="slider"></input>
             <span id="display-year">2018</span>
           </div>
+
           <div class="bar-graph-container">
-            <svg id="bar-graph"></svg>
+            <svg id="bar-graph" width="550" height="400"></svg>
             <script src="javascripts/chart/bar.js"></script>
           </div>
         </div>
       </div>
-
 
       <footer class='footer'>
         <div class='footerDiv'>

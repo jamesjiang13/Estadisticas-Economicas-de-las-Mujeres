@@ -1,6 +1,6 @@
 .latam-map-container {
   height: 100vh;
-  width: 600px;
+  width: 60vh;
 }
 .latam-map-container body {
   margin: 0px;
@@ -17,6 +17,7 @@
 #latam-map {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;

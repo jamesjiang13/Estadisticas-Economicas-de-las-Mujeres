@@ -17,6 +17,7 @@
 /* data fields CSS */
 .data-container {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
 }
 
@@ -33,6 +34,14 @@
   background-color: orange;
   border-radius: 4px;
 }
+
+.right-data-container {
+  display:flex;
+  flex-direction: column;
+  width: inherit;
+  height: inherit;
+}
+
 
 /* footer CSS */
 .footer {
