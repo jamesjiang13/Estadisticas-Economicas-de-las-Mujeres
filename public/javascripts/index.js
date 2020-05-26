@@ -31,6 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
     graph.draw();
   });
 
+  document.getElementById('nav-title').addEventListener('mouseover', () => {
+    const ele = document.getElementById('hover-tooltip');
+    ele.innerHTML = 'Economic statistics for women across Latin America';
+    ele.style.opacity = 1;
+  });
+
+  document.getElementById('nav-title').addEventListener('mouseout', () => {
+    const ele = document.getElementById('hover-tooltip');
+    ele.innerHTML = '';
+    ele.style.opacity = 0;
+  });
+
   slider.onchange = () => {
     year = slider.value;
     output.innerHTML = year;

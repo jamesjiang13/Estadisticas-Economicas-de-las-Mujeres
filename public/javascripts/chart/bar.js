@@ -21,8 +21,10 @@ export default class BarGraph {
     svg.selectAll("*").remove();
 
     const margin = 30;
-    const width = svg.attr('width') - margin;
-    const height = svg.attr('height') - margin;
+    const width = 550;
+    const height = 300;
+    // const width = svg.attr('width') - margin;
+    // const height = svg.attr('height') - margin;
 
     const barGraph = svg.append('g')
       .attr('height', height - (margin * 2))
@@ -56,6 +58,12 @@ export default class BarGraph {
       .attr('x', (g) => xScale(g.country))
       .attr('y', (g) => yScale(g.value))
       .attr('height', (g) => height - yScale(g.value))
-      .attr('width', xScale.bandwidth());
+      .attr('width', xScale.bandwidth())
+      .on('mouseover', function(d,i) {
+        d3.select(this).style('fill', '#efefef');
+      })
+      .on('mouseout', function(d,i) {
+        d3.select(this).style('fill', '#BABABA');
+      });
   }
 };
