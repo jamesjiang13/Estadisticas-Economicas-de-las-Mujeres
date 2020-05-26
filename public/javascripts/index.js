@@ -4,24 +4,23 @@ const axios = require('axios');
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const totalData = {};
+
   function getData(worldBankDatabase) {
-    axios.get(`/countriesData?string=${worldBankDatabase}`)
+    return axios.get(`/countriesData?string=${worldBankDatabase}`)
       .then((response) => {
-        return newPromise((res, rej) => {
-          const totalData = {};
-          response.data[1].forEach((row) => {
-            const countryName = row.country.value.split(',')[0];
-            if (!totalData[countryName]) {
-              totalData[countryName] = {};
-              totalData[countryName][row.date] = row.value;
-              totalData[countryName].abbrev = row.countryiso3code;
-            } else {
-              totalData[countryName][row.date] = row.value;
-            }
-          });
-          debugger
-          return totalData;
-        }
+        response.data[1].forEach((row) => {
+          const countryName = row.country.value.split(',')[0];
+          if (!totalData[countryName]) {
+            totalData[countryName] = {};
+            totalData[countryName][row.date] = row.value;
+            totalData[countryName].abbrev = row.countryiso3code;
+          } else {
+            totalData[countryName][row.date] = row.value;
+          }
+        });
+
+        return totalData;
       })
       .catch((err) => console.log(err));
   }
@@ -38,17 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('categories-container').addEventListener('click', (e) => {
     getData(e.target.value)
       .then((totalData) => createGraph(totalData, year));
-    // .then(resData => createGraph(resData, year));
-    // const graph = new BarGraph(totalData, year);
-    // graph.draw();
   });
 
   slider.onchange = () => {
     year = slider.value;
     output.innerHTML = year;
     createGraph(totalData, year);
-    // const graph = new BarGraph(totalData, year);
-    // graph.draw();
   };
 
   const latamMap = document.getElementById('latam-map');

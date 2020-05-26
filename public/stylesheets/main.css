@@ -53,7 +53,7 @@
   align-items: center;
   justify-content: space-between;
   bottom: 0;
-  width: 100vw;
+  width: -webkit-fill-available;
   height: 50px;
   background-color: #67727e;
   padding: 0px 20px;
@@ -74,6 +74,6 @@
 
 .world-bank-container a {
   color: #BABABA;
-  padding: 0px 30px;
+  padding: 0px 20px;
 }
 
