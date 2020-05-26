@@ -30,11 +30,10 @@ export default class BarGraph {
       .attr('width', width - (margin * 2))
       .attr('transform', `translate(${margin}, ${margin})`);
 
-    // this builds the x-axis, countries for me
     const xScale = d3.scaleBand()
-      .range([0, width]) // range of band is width of svg
+      .range([0, width])
       .padding(0.1)
-      .domain(Object.keys(this.dataset)); // add each country as a vertical column
+      .domain(Object.values(this.dataset).map((country) => country.abbrev));
 
     const yScale = d3.scaleLinear()
       .range([height, 0])
@@ -53,16 +52,16 @@ export default class BarGraph {
       .append('g')
       .append('rect')
       .attr('class', 'bar')
-      .attr('x', (g) => xScale(g.country))
+      .attr('x', (g) => xScale(g.abbrev))
       .attr('y', (g) => yScale(g.value))
       .attr('height', (g) => height - yScale(g.value))
       .attr('width', xScale.bandwidth())
       .style('fill', '#98eb94')
-      .on('mouseover', function(d,i) {
+      .on('mouseover', function (d, i) {
         d3.select(this).style('fill', '#08b300');
       })
-      .on('mouseout', function(d,i) {
+      .on('mouseout', function (d, i) {
         d3.select(this).style('fill', '#98eb94');
       });
   }
-};
+}
