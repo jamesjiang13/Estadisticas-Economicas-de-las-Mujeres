@@ -13,16 +13,17 @@ export default class BarGraph {
       const data = {};
       data.country = country;
       data.value = this.dataset[country][this.year];
+      data.abbrev = this.dataset[country].abbrev;
       if (data.value > maxValue) maxValue = data.value;
       currentYearData.push(data);
     });
 
     const svg = d3.select('#bar-graph');
-    svg.selectAll("*").remove();
+    svg.selectAll('*').remove();
 
     const margin = 30;
-    const width = svg.attr('width') - margin;
-    const height = svg.attr('height') - margin;
+    const width = 550;
+    const height = 300;
 
     const barGraph = svg.append('g')
       .attr('height', height - (margin * 2))
@@ -37,7 +38,6 @@ export default class BarGraph {
 
     const yScale = d3.scaleLinear()
       .range([height, 0])
-      // .domain([0, 100]);
       .domain([0, maxValue + 10]);
 
     barGraph.append('g')
@@ -56,6 +56,13 @@ export default class BarGraph {
       .attr('x', (g) => xScale(g.country))
       .attr('y', (g) => yScale(g.value))
       .attr('height', (g) => height - yScale(g.value))
-      .attr('width', xScale.bandwidth());
+      .attr('width', xScale.bandwidth())
+      .style('fill', '#98eb94')
+      .on('mouseover', function(d,i) {
+        d3.select(this).style('fill', '#08b300');
+      })
+      .on('mouseout', function(d,i) {
+        d3.select(this).style('fill', '#98eb94');
+      });
   }
 };

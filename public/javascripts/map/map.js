@@ -14,11 +14,12 @@ d3.json('/javascripts/map/latinamerica.json')
       .enter()
       .append('path')
       .attr('d', pathGenerator)
+      .style('fill', '#98eb94')
       .on('mouseover', function(d,i) {
-        d3.select(this).style('fill', '#efefef');
+        d3.select(this).style('fill', '#08b300'); // #4f9ff0
       })
       .on('mouseout', function(d,i) {
-        d3.select(this).style('fill', '#BABABA');
+        d3.select(this).style('fill', '#98eb94'); // #BABABA
       });
   });
 

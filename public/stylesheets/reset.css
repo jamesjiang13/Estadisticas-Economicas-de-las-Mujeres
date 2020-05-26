@@ -104,3 +104,7 @@ input, select {
 svg {
     overflow: visible;
 }
+
+/* *:hover {
+    cursor: pointer;
+} */
