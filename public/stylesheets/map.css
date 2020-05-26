@@ -2,14 +2,14 @@
   height: 650px;
   width: 550px;
 }
+
 .latam-map-container body {
   margin: 0px;
   overflow: hidden;
-  background-color: blue;
 }
 
 .latam-map-container path {
-  fill: #BABABA;
+  /* fill: #BABABA; */
   stroke-opacity: 50%;
   stroke: black;
 }

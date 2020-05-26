@@ -1,9 +1,9 @@
-.bar-graph-container {
-  width: 500px;
-  height: 300px;
+.bar-graph-container bar {  
+  border: black; 
 }
 
-:svg #bar-graph {
+#bar-graph {
   width: 500px;
   height: 300px;
+
 }

@@ -12,6 +12,7 @@ const getData = (worldBankDatabase) => {
         if (!totalData[countryName]) {
           totalData[countryName] = {};
           totalData[countryName][row.date] = row.value;
+          totalData[countryName].abbrev = row.countryiso3code;
         } else {
           totalData[countryName][row.date] = row.value;
         }
@@ -27,20 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('categories-container').addEventListener('click', (e) => {
     getData(e.target.value);
+
     const graph = new BarGraph(totalData, year);
     graph.draw();
-  });
-
-  document.getElementById('nav-title').addEventListener('mouseover', () => {
-    const ele = document.getElementById('hover-tooltip');
-    ele.innerHTML = 'Economic statistics for women across Latin America';
-    ele.style.opacity = 1;
-  });
-
-  document.getElementById('nav-title').addEventListener('mouseout', () => {
-    const ele = document.getElementById('hover-tooltip');
-    ele.innerHTML = '';
-    ele.style.opacity = 0;
   });
 
   slider.onchange = () => {
@@ -68,4 +58,34 @@ document.addEventListener('DOMContentLoaded', () => {
     label.innerHTML = '';
     label.style.opacity = 0;
   });
+
+  const barGraph = document.getElementById('bar-graph');
+
+  barGraph.addEventListener('mouseover', (e) => {
+    let data = e.target.__data__;
+    if (data) {
+      const label = document.getElementById('hover-tooltip');
+      label.innerHTML = `${data.country}: ${data.value.toFixed(2)}`;
+      label.style.opacity = 1;
+    }
+  });
+
+  barGraph.addEventListener('mouseout', () => {
+    const label = document.getElementById('hover-tooltip');
+    label.innerHTML = '';
+    label.style.opacity = 0;
+  });
+
+  document.getElementById('nav-title').addEventListener('mouseover', () => {
+    const ele = document.getElementById('hover-tooltip');
+    ele.innerHTML = 'Economic statistics for women across Latin America';
+    ele.style.opacity = 1;
+  });
+
+  document.getElementById('nav-title').addEventListener('mouseout', () => {
+    const ele = document.getElementById('hover-tooltip');
+    ele.innerHTML = '';
+    ele.style.opacity = 0;
+  });
+
 });

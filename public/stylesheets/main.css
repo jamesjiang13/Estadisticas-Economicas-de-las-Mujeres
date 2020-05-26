@@ -32,7 +32,9 @@
   position: absolute; 
   opacity: 0;
   padding: 3px 7px;
-  background-color: orange;
+  background-color: #f2e6b1;
+  border: solid 1px black;
+  color: black;
   border-radius: 4px;
 }
 
