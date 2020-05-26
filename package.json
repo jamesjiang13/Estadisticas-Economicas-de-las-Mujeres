@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "build": "webpack",
+    "build": "webpack --watch",
     "server": "nodemon app.js",
     "debug": "DEBUG=* node app.js"
   },

@@ -8,6 +8,8 @@ export default class BarGraph {
   draw() {
     const currentYearData = [];
     let maxValue = 0;
+    
+    debugger 
 
     Object.keys(this.dataset).map((country) => {
       const data = {};
