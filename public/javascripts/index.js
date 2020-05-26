@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return totalData;
       })
-      .catch((err) => console.log(err));
+      // .catch((err) => console.log(err));
   }
 
   function createGraph(data, yr) {
@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const latamMap = document.getElementById('latam-map');
 
   latamMap.addEventListener('mouseover', (e) => {
-    let country = e.target.__data__.properties.brk_name;
-    if (country) {
+    if (e.target.__data__) {
+      let country = e.target.__data__.properties.brk_name;
       const label = document.getElementById('hover-tooltip');
       const selectedYear = document.getElementById('slider').value;
       const countryValue = totalData[country][selectedYear];
