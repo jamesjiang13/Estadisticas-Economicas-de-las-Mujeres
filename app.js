@@ -17,7 +17,7 @@ app.get('/countriesData', (request, response) => {
     });
 });
 
-app.listen(PORT, () => {
-  console.log(__dirname);
-  console.log(`listening on ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(__dirname);
+//   console.log(`listening on ${PORT}`);
+// });

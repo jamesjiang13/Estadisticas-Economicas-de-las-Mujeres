@@ -27,8 +27,6 @@ document.onmousemove = (e) => {
   document.getElementById('hover-tooltip').style.top = e.pageY + 10 + 'px';
 };
 
-// svg.select("Guyana").style("fill", function(d) {return '#efefef'});
-
 // latamMap.addEventListener('mouseover', (e) => {
 //   country = e.target.__data__.properties.brk_name;
 //   if (country) {
