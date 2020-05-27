@@ -18,14 +18,14 @@ export default class LineChart {
       }
     });
 
-    const svg = d3.select('#bar-graph');
+    const svg = d3.select('#data-graphic');
     svg.selectAll('*').remove();
 
     const margin = 30;
     const width = 550;
     const height = 300;
 
-    const chart = svg.append('g')
+    const lineChart = svg.append('g')
       .attr('height', height - (margin * 2))
       .attr('width', width - (margin * 2))
       .attr('transform', `translate(${margin}, ${margin})`);
@@ -45,28 +45,35 @@ export default class LineChart {
         .domain([0, 105]);
     }
 
-    chart.append('g')
+    lineChart.append('g')
       .call(d3.axisLeft(yRange));
 
-    chart.append('g')
+    lineChart.append('g')
       .attr('transform', `translate(0, ${height})`)
       .call(d3.axisBottom(xRange).tickFormat(d3.format('d')));
 
     const line = d3.line()
       .x((d) => xRange(d.year))
-      .y((d) => yRange(d.value));
+      .y((d) => yRange(d.value))
+      .defined((d) => d.value);
 
-
-    const lineChart = chart.selectAll()
+    lineChart.selectAll()
       .data([currentCountryData])
       .enter()
-      .append('g');
-
-    lineChart
+      .append('g')
       .append('path')
       .style('fill', 'none')
       .attr('d', line)
       .style('stroke', '#08b300')
       .style('stroke-width', 2);
+
+    lineChart.selectAll('.dot')
+      .data(currentCountryData.filter((d) => d.value !== null))
+      .enter().append('circle')
+      .attr('class', 'dot')
+      .attr('cx', line.x())
+      .attr('cy', line.y())
+      .attr('r', 3.5)
+      .style('fill', '#08b300');
   }
 }

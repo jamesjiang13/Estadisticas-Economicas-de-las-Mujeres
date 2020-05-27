@@ -67,6 +67,7 @@
   border: solid 1px black;
   color: black;
   border-radius: 4px;
+  max-width: 250px;
 }
 
 .right-data-container {
@@ -75,7 +76,6 @@
   width: inherit;
   height: inherit;
 }
-
 
 /* footer CSS */
 .footer {
