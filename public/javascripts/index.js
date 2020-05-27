@@ -2,6 +2,26 @@ import BarGraph from './chart/bar';
 
 const axios = require('axios');
 
+window.onload = () => {
+  const modal = document.getElementById('my-modal');
+  const description = document.getElementById('project-description');
+  description.innerHTML = `This project was inspired by my time living in Latin America 
+    and hearing first hand accounts from my friends on what the "Ni Una Mas" movement meant to them.
+    Women in Latin America face many  obstacles, and I want to show that 
+    visually using data from the World Bank. While the heart of "Ni Una Mas" started in 
+    response to the extremely high femicide rate across Latin America, that metric is 
+    not currnetly available in the World Bank. In its stead, I am choosing to focus on 
+    some other socio-economic factors that could possibly contribute to a femicide rate 
+    that is one of the highest in the world.`;
+  modal.style.display = 'block';
+
+  window.onclick = (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const totalData = {};
 
@@ -34,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('categories-container').addEventListener('click', (e) => {
     getData(e.target.value)
-      .then((totalData) => createGraph(totalData, year));
+      .then((resData) => createGraph(resData, year));
   });
 
   slider.onchange = () => {
@@ -67,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const barGraph = document.getElementById('bar-graph');
 
   barGraph.addEventListener('mouseover', (e) => {
-    let data = e.target.__data__;
+    const data = e.target.__data__;
     if (data) {
       const label = document.getElementById('hover-tooltip');
       label.innerHTML = `${data.country}: ${data.value.toFixed(2)}`;
