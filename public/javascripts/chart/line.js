@@ -74,9 +74,6 @@ export default class LineChart {
       .attr('cx', line.x())
       .attr('cy', line.y())
       .attr('r', 3.5)
-      .style('fill', '#08b300')
-      .filter((d, i) => d.close !== null && i > 1
-        && data[i - 1].close === null
-        && data[i + 1].close === null);
+      .style('fill', '#08b300');
   }
 }

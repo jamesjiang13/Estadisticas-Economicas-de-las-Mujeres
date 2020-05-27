@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('SL.EMP.VULN.FE.ZS').addEventListener('mouseover', (e) => {
     const hoverbox = document.getElementById('hover-tooltip');
-    hoverbox.innerHTML = `Vulnerable employment is contributing family workers and own-account workers as a percentage of total employment. If the proportion of own-account workers (self-employed without hired employees) is sizeable, it may be an indication of a large agriculture sector and low growth in the formal economy.`;
+    hoverbox.innerHTML = `A vulnerable employee is one defined as a family/household-worker or an own-account worker (self-employed without additional hired employees). If the proportion of vulnerable workers is sizeable, it may be an indication of a large agriculture sector and low growth in the formal economy.`;
     hoverbox.style.opacity = 1;
   });
 
@@ -145,7 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = e.target.__data__;
     if (data) {
       const label = document.getElementById('hover-tooltip');
-      label.innerHTML = `${data.country}: ${data.value.toFixed(2)}`;
+      const xAxis = data.country || data.year;
+      label.innerHTML = `${xAxis}: ${data.value.toFixed(2)}`;
       label.style.opacity = 1;
     }
   });
