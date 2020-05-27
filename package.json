@@ -14,7 +14,7 @@
   "scripts": {
     "start": "node app.js",
     "postinstall": "webpack",
-    "build": "webpack --watch",
+    "build": "webpack",
     "server": "nodemon app.js",
     "debug": "DEBUG=* node app.js"
   },
