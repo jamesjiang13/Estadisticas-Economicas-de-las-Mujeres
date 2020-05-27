@@ -15,7 +15,7 @@ d3.json('/javascripts/map/latinamerica.json')
       .append('path')
       .attr('d', pathGenerator)
       .style('fill', '#98eb94')
-      .on('mouseover', function(d,i) {
+      .on('mouseover', function (d,i) {
         d3.select(this).style('fill', '#08b300'); // #4f9ff0
       })
       .on('mouseout', function(d,i) {
@@ -23,10 +23,10 @@ d3.json('/javascripts/map/latinamerica.json')
       });
   });
 
-document.onmousemove = (e) => {
-  document.getElementById('hover-tooltip').style.left = e.pageX + 10 + 'px';
-  document.getElementById('hover-tooltip').style.top = e.pageY + 10 + 'px';
-};
+// document.onmousemove = (e) => {
+//   document.getElementById('hover-tooltip').style.left = e.pageX + 10 + 'px';
+//   document.getElementById('hover-tooltip').style.top = e.pageY + 10 + 'px';
+// };
 
 // d3.json('https://unpkg.com/world-atlas@1.1.4/world/50m.json')
 //   .then((topo) => {
