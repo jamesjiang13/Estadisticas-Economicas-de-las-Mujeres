@@ -1,4 +1,3 @@
-// bar graph shows every country's result for that year
 export default class BarGraph {
   constructor(dataset, year) {
     this.dataset = dataset;

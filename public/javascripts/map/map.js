@@ -28,26 +28,6 @@ document.onmousemove = (e) => {
   document.getElementById('hover-tooltip').style.top = e.pageY + 10 + 'px';
 };
 
-// latamMap.addEventListener('mouseover', (e) => {
-//   country = e.target.__data__.properties.brk_name;
-//   if (country) {
-//     const label = document.getElementById('hover-tooltip');
-//     // const selectedYear = document.getElementById('slider').value;
-//     // const countryValue = dataSet.country[selectedYear];
-//     // console.log(selectedYear);
-//     // console.log(countryValue);
-
-//     label.innerHTML = country;
-//     label.style.opacity = 1;
-//   }
-// });
-
-// latamMap.addEventListener('mouseout', (e) => {
-//   const label = document.getElementById('hover-tooltip');
-//   label.innerHTML = '';
-//   label.style.opacity = 0;
-// });
-
 // d3.json('https://unpkg.com/world-atlas@1.1.4/world/50m.json')
 //   .then((topo) => {
 //     // console.log(topo)
