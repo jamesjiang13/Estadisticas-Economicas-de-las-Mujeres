@@ -1,4 +1,5 @@
 import BarGraph from './chart/bar';
+import LineChart from './chart/line';
 
 const axios = require('axios');
 
@@ -52,7 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const output = document.getElementById('display-year');
   let year = slider.value;
 
-  document.getElementById('categories-container').addEventListener('click', (e) => {
+  getData('NY.GDP.PCAP.CD').then((resData) => createGraph(resData, year));
+
+  document.getElementById('categories-container').addEventListener('change', (e) => {
     getData(e.target.value)
       .then((resData) => createGraph(resData, year));
   });
@@ -60,9 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
   slider.onchange = () => {
     year = slider.value;
     output.innerHTML = year;
-    if (totalData.length) {
-      createGraph(totalData, year);
-    }
+    createGraph(totalData, year);
+  };
+
+  document.onmousemove = (e) => {
+    document.getElementById('hover-tooltip').style.left = e.pageX + 10 + 'px';
+    document.getElementById('hover-tooltip').style.top = e.pageY + 10 + 'px';
   };
 
   const latamMap = document.getElementById('latam-map');
@@ -82,6 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const label = document.getElementById('hover-tooltip');
     label.innerHTML = '';
     label.style.opacity = 0;
+  });
+
+  latamMap.addEventListener('click', (e) => {
+    const country = e.target.__data__.properties.brk_name;
+    if (totalData) {
+      const line = new LineChart(totalData[country], country);
+      line.draw();
+    }
   });
 
   const barGraph = document.getElementById('bar-graph');
