@@ -18,14 +18,14 @@ export default class LineChart {
       }
     });
 
-    const svg = d3.select('#bar-graph');
+    const svg = d3.select('#data-graphic');
     svg.selectAll('*').remove();
 
     const margin = 30;
     const width = 550;
     const height = 300;
 
-    const chart = svg.append('g')
+    const lineChart = svg.append('g')
       .attr('height', height - (margin * 2))
       .attr('width', width - (margin * 2))
       .attr('transform', `translate(${margin}, ${margin})`);
@@ -45,10 +45,10 @@ export default class LineChart {
         .domain([0, 105]);
     }
 
-    chart.append('g')
+    lineChart.append('g')
       .call(d3.axisLeft(yRange));
 
-    chart.append('g')
+    lineChart.append('g')
       .attr('transform', `translate(0, ${height})`)
       .call(d3.axisBottom(xRange).tickFormat(d3.format('d')));
 
@@ -57,12 +57,10 @@ export default class LineChart {
       .y((d) => yRange(d.value));
 
 
-    const lineChart = chart.selectAll()
+    lineChart.selectAll()
       .data([currentCountryData])
       .enter()
-      .append('g');
-
-    lineChart
+      .append('g')
       .append('path')
       .style('fill', 'none')
       .attr('d', line)

@@ -17,7 +17,7 @@ export default class BarGraph {
       currentYearData.push(data);
     });
 
-    const svg = d3.select('#bar-graph');
+    const svg = d3.select('#data-graphic');
     svg.selectAll('*').remove();
 
     const margin = 30;
@@ -34,9 +34,16 @@ export default class BarGraph {
       .padding(0.1)
       .domain(Object.values(this.dataset).map((country) => country.abbrev));
 
-    const yScale = d3.scaleLinear()
-      .range([height, 0])
-      .domain([0, maxValue + 10]);
+    let yScale;
+    if (maxValue > 105) {
+      yScale = d3.scaleLinear()
+        .range([height, 0])
+        .domain([0, maxValue + 10]);
+    } else {
+      yScale = d3.scaleLinear()
+        .range([height, 0])
+        .domain([0, 105]);
+    }
 
     barGraph.append('g')
       .call(d3.axisLeft(yScale));
