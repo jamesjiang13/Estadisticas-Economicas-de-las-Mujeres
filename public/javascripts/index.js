@@ -5,15 +5,23 @@ const axios = require('axios');
 
 window.onload = () => {
   const modal = document.getElementById('my-modal');
-  const description = document.getElementById('project-description');
-  description.innerHTML = `This project was inspired by my time living in Latin America 
+  const english = document.getElementById('project-description-english');
+  const spanish = document.getElementById('project-description-spanish');
+
+  english.innerHTML = `This project was inspired by my time living in Latin America 
     and hearing first hand accounts from my friends on what the "Ni Una Mas" movement meant to them.
-    Women in Latin America face many  obstacles, and I want to show that 
-    visually using data from the World Bank. While the heart of "Ni Una Mas" started in 
-    response to the extremely high femicide rate across Latin America, that metric is 
-    not currnetly available in the World Bank. In its stead, I am choosing to focus on 
-    some other socio-economic factors that could possibly contribute to a femicide rate 
-    that is one of the highest in the world.`;
+    While the heart of "Ni Una Mas" started in response to the extremely high femicide rate across 
+    Latin America, that metric is not currently available through The World Bank. In its stead, 
+    I am choosing to focus on some other socio-economic factors that could possibly contribute to 
+    a femicide rate that is one of the highest in the world.`;
+
+  spanish.innerHTML = `Este proyecto se inspiró en mi tiempo viviendo en Latinoamérica
+    y escuchar relatos de primera mano de mis amigas sobre lo que el movimiento "Ni Una Mas" 
+    significaba para ellas. Si bien el corazón de "Ni Una Mas" comenzó en respuesta a la altísimo 
+    tasa de feminicidios en toda Latinoamérica, esa métrica no está disponible en El Banco Mundial. 
+    En cambio, estoy eligiendo centrarme en otros otros factores socioeconómicos que podrían contribuir 
+    a una tasa de feminicidios que es uno de los más altos del mundo.`;
+
   modal.style.display = 'block';
 
   window.onclick = (e) => {
@@ -121,8 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const latamMap = document.getElementById('latam-map');
 
   latamMap.addEventListener('mouseover', (e) => {
-    if (e.target.__data__) {
-      const country = e.target.__data__.properties.brk_name;
+    const noFill = ["GUY", "DOM", "SUR", "FRA", "TTO"];
+    const targetProperties = e.target.__data__;
+    if (targetProperties && !noFill.includes(targetProperties.properties.adm0_a3)) {
+      const country = targetProperties.properties.brk_name;
       const label = document.getElementById('hover-tooltip');
       const selectedYear = document.getElementById('slider').value;
       const countryValue = totalData[country][selectedYear];
