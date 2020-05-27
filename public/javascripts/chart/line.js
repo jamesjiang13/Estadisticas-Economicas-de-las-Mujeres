@@ -32,7 +32,7 @@ export default class LineChart {
 
     const xRange = d3.scaleLinear()
       .range([0, width])
-      .domain([2001, 2018]);
+      .domain([2000, 2018]);
 
     let yRange;
     if (maxValue > 200) {

@@ -7,17 +7,6 @@ const color = d3.scaleLog()
   .domain([0, 100])
   .range(d3.schemeBlues[4]);
 
-// function colorCountries(country) {
-//   debugger;
-//   const noFill = ["GUY", "DOM", "SUR", "FRA", "TTO"];
-//   if (noFill.includes(country.brk_a3)) {
-//     return '#67727e';
-//   } else {
-//     return '#98eb94';
-//   };
-// }
-// topo.features.map(country => country.properties.adm0_a3)
-
 d3.json('/javascripts/map/latinamerica.json')
   .then((topo) => {
     const noFill = ["GUY", "DOM", "SUR", "FRA", "TTO"];
@@ -40,11 +29,6 @@ d3.json('/javascripts/map/latinamerica.json')
         });
       });
   });
-
-// document.onmousemove = (e) => {
-//   document.getElementById('hover-tooltip').style.left = e.pageX + 10 + 'px';
-//   document.getElementById('hover-tooltip').style.top = e.pageY + 10 + 'px';
-// };
 
 // d3.json('https://unpkg.com/world-atlas@1.1.4/world/50m.json')
 //   .then((topo) => {
