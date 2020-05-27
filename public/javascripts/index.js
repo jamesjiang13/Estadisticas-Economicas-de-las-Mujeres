@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then((resData) => createGraph(resData, year));
   });
 
-  slider.onchange = () => { // remove if statement, always create graph on change;
+  slider.onchange = () => {
     year = slider.value;
     output.innerHTML = year;
     createGraph(totalData, year);
@@ -88,6 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const label = document.getElementById('hover-tooltip');
     label.innerHTML = '';
     label.style.opacity = 0;
+  });
+
+  latamMap.addEventListener('click', (e) => {
+    const country = e.target.__data__.properties.brk_name;
+    if (totalData) {
+      const line = new LineChart(totalData[country], country);
+      line.draw();
+    }
   });
 
   const barGraph = document.getElementById('bar-graph');
