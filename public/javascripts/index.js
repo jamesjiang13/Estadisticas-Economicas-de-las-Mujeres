@@ -5,6 +5,7 @@ const axios = require('axios');
 
 window.onload = () => {
   const modal = document.getElementById('my-modal');
+  const dismiss = document.getElementById('close-modal');
   const english = document.getElementById('project-description-english');
   const spanish = document.getElementById('project-description-spanish');
 
@@ -23,6 +24,10 @@ window.onload = () => {
     a una tasa de feminicidios que es uno de los más altos del mundo.`;
 
   modal.style.display = 'block';
+
+  dismiss.onclick = (e) => {
+    modal.style.display = 'none';
+  };
 
   window.onclick = (e) => {
     if (e.target === modal) {

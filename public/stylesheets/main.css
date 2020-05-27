@@ -37,7 +37,7 @@
   background-color: #fefefe;
   margin: 10% auto;
   padding: 20px;
-  border: 1px solid #888;
+  /* border: 1px solid #888; */
   width: 65%; 
   height: 55%;
 }
@@ -50,6 +50,21 @@
 
 #project-description-spanish {
   color: #08b300;
+}
+
+#close-modal {
+  /* color: #08b300; */
+  background-color: #98eb94;
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 150px;
+  font-size: 20px;
+}
+
+#close-modal:hover {
+  /* color: #98eb94; */
+  color: white;
+  background-color: #08b300;
 }
 
 /* data fields  */
