@@ -34,9 +34,16 @@ export default class LineChart {
       .range([0, width])
       .domain([2001, 2018]);
 
-    const yRange = d3.scaleLinear()
-      .range([height, 0])
-      .domain([0, maxValue + 10]);
+    let yRange;
+    if (maxValue > 200) {
+      yRange = d3.scaleLinear()
+        .range([height, 0])
+        .domain([0, maxValue + 10]);
+    } else {
+      yRange = d3.scaleLinear()
+        .range([height, 0])
+        .domain([0, 105]);
+    }
 
     chart.append('g')
       .call(d3.axisLeft(yRange));
@@ -46,18 +53,20 @@ export default class LineChart {
       .call(d3.axisBottom(xRange).tickFormat(d3.format('d')));
 
     const line = d3.line()
-      .x(function(d) { return xRange(d.year)})
-      .y(function(d) { return yRange(d.value)});
+      .x((d) => xRange(d.year))
+      .y((d) => yRange(d.value));
+
 
     const lineChart = chart.selectAll()
       .data([currentCountryData])
       .enter()
       .append('g');
 
-    lineChart.append('path')
+    lineChart
+      .append('path')
       .style('fill', 'none')
       .attr('d', line)
       .style('stroke', '#08b300')
-      .style('stroke-width', 3);
+      .style('stroke-width', 2);
   }
-};
+}

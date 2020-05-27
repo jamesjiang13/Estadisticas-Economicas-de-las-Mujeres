@@ -91,8 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   latamMap.addEventListener('click', (e) => {
-    const country = e.target.__data__.properties.brk_name;
-    if (totalData) {
+    if (e.target.__data__) {
+      const country = e.target.__data__.properties.brk_name;
       const line = new LineChart(totalData[country], country);
       line.draw();
     }
