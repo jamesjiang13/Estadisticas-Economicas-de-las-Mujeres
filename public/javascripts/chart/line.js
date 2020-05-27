@@ -54,8 +54,8 @@ export default class LineChart {
 
     const line = d3.line()
       .x((d) => xRange(d.year))
-      .y((d) => yRange(d.value));
-
+      .y((d) => yRange(d.value))
+      .defined((d) => d.value);
 
     lineChart.selectAll()
       .data([currentCountryData])
@@ -66,5 +66,17 @@ export default class LineChart {
       .attr('d', line)
       .style('stroke', '#08b300')
       .style('stroke-width', 2);
+
+    lineChart.selectAll('.dot')
+      .data(currentCountryData.filter((d) => d.value !== null))
+      .enter().append('circle')
+      .attr('class', 'dot')
+      .attr('cx', line.x())
+      .attr('cy', line.y())
+      .attr('r', 3.5)
+      .style('fill', '#08b300')
+      .filter((d, i) => d.close !== null && i > 1
+        && data[i - 1].close === null
+        && data[i + 1].close === null);
   }
 }
