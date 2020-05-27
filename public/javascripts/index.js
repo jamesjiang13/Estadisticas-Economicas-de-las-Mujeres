@@ -3,7 +3,6 @@ import BarGraph from './chart/bar';
 const axios = require('axios');
 
 document.addEventListener('DOMContentLoaded', () => {
-
   const totalData = {};
 
   function getData(worldBankDatabase) {
@@ -21,8 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         return totalData;
-      })
-      // .catch((err) => console.log(err));
+      });
   }
 
   function createGraph(data, yr) {
@@ -42,14 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
   slider.onchange = () => {
     year = slider.value;
     output.innerHTML = year;
-    createGraph(totalData, year);
+    if (totalData.length) {
+      createGraph(totalData, year);
+    }
   };
 
   const latamMap = document.getElementById('latam-map');
 
   latamMap.addEventListener('mouseover', (e) => {
     if (e.target.__data__) {
-      let country = e.target.__data__.properties.brk_name;
+      const country = e.target.__data__.properties.brk_name;
       const label = document.getElementById('hover-tooltip');
       const selectedYear = document.getElementById('slider').value;
       const countryValue = totalData[country][selectedYear];
